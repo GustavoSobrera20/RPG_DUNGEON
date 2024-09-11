@@ -1,0 +1,307 @@
+<title>DUNGEON DO PAULINHO</title>
+<body style="background-color: dimgrey;">
+      <script>
+        let atkJogador = 15;
+        let defJogador = 10;
+        let vidaJogador = 30;
+        let none = '';
+
+        function portaMisteriosa() {
+          alert("Você entrou em uma sala");
+          alert("Você encontrou um baú misterioso e nesse baú havia 3 itens: uma espada longa e dourada, uma armadura linda e reluzente como as estrelas, e um pequeno cogomelo misterioso vermelho com bolinhas brancas");
+          let escolhaItem = prompt("Ao abrir o baú, qual item você gostaria de pegar:\n1 - Espada longa e dourada\n2 - Armadura linda e reluzente como as estrelas\n3 - Um pequeno cogomelo misterioso vermelho com bolinhas brancas");
+          while (escolhaItem < 1 || escolhaItem > 3) {
+            escolhaItem = prompt("Escolha um item válido, senão você ficará sem nada:\n1 - Espada longa e dourada\n2 - Armadura linda e reluzente como as estrelas\n3 - Um pequeno cogomelo misterioso vermelho com bolinhas brancas");
+          }
+          alert("Ao escolher o item, todo baú se fechou e você não conseguiu mais abrir ele para pegar o restante dos itens ");
+          alert("mais após o baú se fechar você recebe uma pequena bolsa de dinheiro que contém \n - 10 moedas de ouro \n - 3 moedas de prata ")
+          return escolhaItem;
+        }
+
+        function corredorEscuro() {
+          let escolha = prompt("Após você abrir o baú, você decidiu ir até o corredor escuro. Andando mais à frente, você se depara com um 'pequeno slime' misterioso. Quando ele se depara com você, ele começa a gritar: 'Você não vai passar pelo slime, slime vai impedir você'\n1 - Sair correndo\n2 - Chorar\n3 - Sacar sua espada");
+          if (escolha == '3') {
+            alert("O slime começou a vir correndo em sua direção. Você sacou sua arma e foi de frente com ele para eliminar o pequeno slime");
+            let danoSlime = 15;
+            let defSlime = 10;
+            let vidaSlime = 25;
+            let danoJogador = atkJogador - defSlime;
+            vidaSlime -= danoJogador;
+            let danoSlimeAoJogador = danoSlime - defJogador;
+            if (danoSlimeAoJogador > 0) {
+              vidaJogador -= danoSlimeAoJogador;
+              alert("O slime deu " + danoSlimeAoJogador + " de dano em " + none);
+              alert("Você acaba ficando com apenas " + vidaJogador);
+              alert("Após isso você ataca o slime com sua espada e causa " + atkJogador + " de dano no slime");
+              vidaSlime -= atkJogador;
+              if (vidaSlime < 0) {
+                vidaSlime = 0;
+              }
+              alert("O slime fica com apenas " + vidaSlime + " de vida");
+            } else {
+              alert("O slime não conseguiu dar dano em " + none);
+            }
+            if (vidaSlime - atkJogador) {
+              alert("entao você derrotou o seu primeiro inimigo nesta vasta dungeon ")
+              alert("após você derrotar o slime você recebe um atribudo ")
+              vidaJogador += 30
+              atkJogador += 20
+              defJogador += 20
+              alert("Agora seus atributos são:\nAtaque: " + atkJogador + "\nDefesa: " + defJogador + "\nVida: " + vidaJogador); {}
+              alert("Após você derrotar o slime, surge uma porta secreta no corredor escuro. Então você abre a porta.");
+              alert("Após abrir a porta, você encontra um baú de ferro. Ao abrir este baú, você encontra um pequeno cogumelo dourado que recupera toda a sua vida e defesa, e ele também lhe concede uma habilidade chamada ARISE.");
+              alert("!!! BOMMMMM 💥 Após você fechar o baú, surge um grande Goblin necromante que começa a te atacar com sua magia e, na hora, você esquiva da magia, mais rapidamente ele ataca você novamente.")
+              combate();
+
+              function combate() {
+                let vidaGoblin = 50;
+                let defGoblin = 35;
+                let atkGoblin = 25;
+                let atkGoblinWeak
+                let danoJogador = atkJogador - defGoblin;
+                vidaGoblin -= danoJogador;
+                let danoGoblinAoJogador = atkGoblin - defJogador;
+                if (danoGoblinAoJogador > 0) {
+                  vidaJogador -= danoGoblinAoJogador;
+                  alert("O Goblin deu " + danoGoblinAoJogador + " de dano em " + none);
+                  alert("Então você acaba ficando com apenas " + vidaJogador);
+                  alert("Após isso, você ataca o Goblin com sua espada sagrada e causa " + danoJogador + " de dano no Goblin");
+                  vidaGoblin -= danoJogador;
+                  if (vidaGoblin < 0) {
+                    vidaGoblin = 0;
+                  }
+                  alert("O Goblin fica com apenas " + vidaGoblin + " de vida");
+                } else {
+                  escolhaVida = prompt("O Goblin não conseguiu dar dano em " + none + " então você decide \n1 -  atacar o goblin com  sua espada espada \n2 - esquivar do proximo ataque dele  ");
+                  if (escolhaVida == "1") {
+                    alert("Você deu " + atkJogador + " de dano ao goblin, deixando-o com " + vidaGoblin + " de vida.");
+                    alert("Após você ter atacado o Goblin, ele ficou extremamente furioso, fazendo com que ele cure sua vida rapidamente.\nVida do Goblin: " + vidaGoblin);
+                    vidaGoblin += 50
+                    alert("Agora os status dele são:\nVida: " + vidaGoblin + "\nAtaque: " + atkGoblin + "\nDefesa: " + defGoblin);
+                    alert("Então o grande Goblin ataca você causando " + atkGoblin + " de dano.\nVocê fica com " + vidaJogador + " de vida.");
+                    alert("então após o Goblin ter atacado você rapidamente você percebe que ainda não esta pronto para enfrentá-lo então você volta para o corredor escuro para pensar o que fara agora")
+                    alert(" 💥 mas ao voltar para o corredor escuro você acaba descobrindo uma passagem secreta fazendo com que você caia nela 💫 ")
+                    alert("então você levanta rapidamente para se preparar caso apareça algum inimigo, mas você acaba percebendo  que nesta passagem secreta na verdade era um comercio escondido ")
+                    alert("então você aproveita e vai atras de equipamentos melhores ")
+                    comercio();
+                  } else if (escolhaVida === '2') {
+                    alert("Você tentou esquivar, mas não conseguiu. O goblin aproveita a oportunidade e você acaba sendo derrotado.");
+                    vidaJogador = 0;
+                    alert("Você fica com " + vidaJogador + " de vida. Fim de jogo.");
+                    combate();
+                    return
+                  } else {
+                    alert("Escolha inválida. Tente novamente.");
+                    combate();
+                  }
+                  if (vidaJogador <= 0) {
+                    alert("Você foi derrotado. Fim de jogo.");
+                  }
+                }
+              }
+
+              function comercio() {
+                let moedasDeOuro = 10;
+                let nomeAventureiro = prompt("Olá, meu jovem aventureiro. Qual é o seu nome?");
+                alert("Seja bem-vindo ao nosso comércio principal desta dungeon, " + nomeAventureiro + "! prazer " + nomeAventureiro + " meu nome é Paulinho sou um dos melhores comerciantes desta dungeon");
+                alert("Você tem " + moedasDeOuro + " moedas de ouro.");
+                let escolha = prompt("Qual seria o seu pedido? Nós temos:\n1 - Bastão do Tempo (5 moedas)\n2 - Escudo da Luz Radiante (4 moedas)\n3 - Lâmina do Dragão (7 moedas)\n4 - Amuleto da Proteção Celestial (6 moedas)\n5 - Pendant of Time Manipulation (8 moedas)");
+                let custo;
+                let descricao;
+                if (escolha === '1') {
+                  custo = 5;
+                  descricao = "O Bastão do Tempo permite ao jogador desacelerar o tempo em uma área ao redor, dando-lhe vantagem estratégica durante batalhas ou ajudando a evitar armadilhas.";
+                } else if (escolha === '2') {
+                  custo = 4;
+                  descricao = "O Escudo da Luz Radiante reflete parte do dano recebido de volta para o atacante e emite uma aura que reduz a precisão dos inimigos ao redor.";
+                } else if (escolha === '3') {
+                  custo = 7;
+                  descricao = "A Lâmina do Dragão é uma espada encantada com a essência de um dragão. Ela inflige dano de fogo adicional e tem a chance de queimar o inimigo, causando dano ao longo do tempo.";
+                } else if (escolha === '4') {
+                  custo = 6;
+                  descricao = "O Amuleto da Proteção Celestial aumenta a defesa do jogador e reduz o dano recebido de ataques mágicos. Pode também proporcionar um escudo temporário que absorve uma quantidade específica de dano.";
+                } else if (escolha === '5') {
+                  custo = 8;
+                  descricao = "O Pendant of Time Manipulation é um pingente que permite ao jogador desacelerar o tempo ao seu redor, facilitando a esquiva de ataques e a execução de manobras complexas.";
+                } else {
+                  alert("Escolha inválida. Tente novamente.");
+                  return;
+                }
+                if (moedasDeOuro >= custo) {
+                  moedasDeOuro -= custo;
+                  alert("Ótima escolha! " + descricao);
+                  alert("Você comprou o item e agora tem " + moedasDeOuro + " moedas de ouro restantes.");
+                  comercioMith(nomeAventureiro); // Chama a função comercioMith após a compra
+                } else {
+                  alert("Desculpe, você não tem moedas de ouro suficientes para comprar este item.");
+                }
+              }
+
+              function comercioMith(nomeAventureiro) {
+                let moedasDeOuro = 3;
+                let descricao;
+                let custo;
+                let newAtk = 65;
+                let newDef = 60;
+                let newlife = 60;
+                alert("Após você ter saído da loja de espadas, você decide ir a uma loja de alimentos mágicos.");
+                let escolha = prompt("Olá, " + nomeAventureiro + "! Nesta loja, nós vendemos alimentos que podem ajudar em sua jornada. Você teria algum interesse?\n1 - Sim\n2 - Não");
+                if (escolha === '1') {
+                  escolha = prompt("Fico feliz por sua escolha! Tenho certeza de que você gostará dos nossos alimentos. Então, qual você escolheria? Nós temos:\n1 - Fruta da Fênix (2 moedas)\n2 - Maçã de Deus (2 moedas)\n3 - Carne Secada de Minotauro (2 moedas)");
+                  if (escolha === '1') {
+                    custo = 2;
+                    descricao = "Ótima escolha, " + nomeAventureiro + "! Esta fruta dourada tem a habilidade de ressuscitar um personagem caído em combate, restaurando uma parte significativa de sua saúde. Também pode conceder um bônus temporário à resistência e à regeneração de mana. É encontrada raramente em zonas perigosas ou nas alturas de montanhas sagradas e ela também lhe da a habilidade de sentir inimigos proximos.";
+                  } else if (escolha === '2') {
+                    custo = 2;
+                    descricao = "Ótima escolha, " + nomeAventureiro + "! A Maçã de Deus emite um leve aroma de especiarias. Comer esta maçã permite ao jogador detectar armadilhas ocultas e inimigos invisíveis por um tempo ilimitado. Também aumenta temporariamente a precisão dos ataques e melhora a percepção geral do ambiente .";
+                  } else if (escolha === '3') {
+                    custo = 2;
+                    descricao = "Ótima escolha, " + nomeAventureiro + "! A Carne Secada de Minotauro é um pedaço de carne suculenta, assado e temperado com ervas mágicas. Comer essa carne concede um aumento temporário significativo na força do jogador, permitindo que ele cause mais dano em combate e destrua obstáculos que antes eram intransponíveis. A carne também fornece uma breve resistência adicional a ataques físicos e ela também lhe da a habilidade de sentir inimigos proximos .";
+                  } else {
+                    alert("Escolha inválida. Tente novamente.");
+                    comercioMith(nomeAventureiro); 
+                    return;
+                  }
+                  alert(descricao);
+                } else if (escolha === '2') {
+                  alert("Se precisar de algo mais, volte sempre!");
+                } else {
+                  alert("Escolha inválida. Tente novamente.");
+                  comercioMith(nomeAventureiro); 
+                  return;
+                }
+                alert("Após você ter saído da loja de alimentos mágicos, você decide equipar o equipamento da loja de espadas. Ao equipar, você sente sua força aumentando a um nível surreal, fazendo com que se sinta capaz de derrotar aquele maldito Goblin necromante.");
+                alert("Agora seus status atuais são de\nvida - " + newlife + "\ndefesa - " + newDef + "\natk - " + newAtk);
+                alert("Então, rapidamente, você decide voltar para o andar onde se encontra o Goblin, mas então você escuta alguém te chamando de perto: " + nomeAventureiro + "!!");
+                alert("Assustado, você olha para a direita e se depara com um beco totalmente assustador. No entanto, como você está decidido a derrotar aquele Goblin, acaba não ligando.");
+                alert("Você novamente escuta alguém chamando seu nome, desta vez em um tom de voz bem maior: " + nomeAventureiro + "!!!!!!");
+                alert("Então, você decide voltar ao beco escuro. Ao entrar, percebe que não havia nada de mais lá, apenas lixo e alimentos estragados. Sentindo que foi coisa da sua cabeça, você acaba não ligando mais e volta para o andar onde está aquele Goblin.");
+                combateFera();
+              }
+
+              function combateFera(nomeAventureiro) {
+                let newAtk = 75;
+                let newDef = 60;
+                let newLife = 80;
+                //------------------
+                let feraAtk = 60;
+                let feraDef = 90;
+                let feraVida = 100;
+                //------------------
+                let vidaSlime2 = 50;
+                let defSlime2 = 20;
+                let atkSlime2 = 0;
+                let gula = 200
+                let danoAspão = 30
+                alert("Após você sair do comércio, você volta para a sala do Goblin Necromante.");
+                alert("Ao entrar na sala do Goblin, você toma um susto ao perceber que o Goblin foi totalmente dizimado, cortado ao meio. Assustado com aquilo, você rapidamente se prepara e usa o alimento mágico que comprou na loja do Paulinho para detectar o inimigo mais próximo.");
+                alert("Ao usar o alimento mágico, você se sente mais poderoso. Agora seus status são:\nAtaque: " + newAtk + "\nDefesa: " + newDef + "\nVida: " + newLife);
+                let fera = prompt("Então, após consumir o alimento mágico, você usa a habilidade de detectar inimigos próximos. Você sente uma energia amaldiçoada extremamente forte vindo de cima de você. Ao olhar para cima, você se depara com uma fera extremamente assustadora. O status da fera são:\nVida: " + feraVida + "\nDefesa: " + feraDef + "\nAtaque: " + feraAtk + ".\nEntão ela avança rapidamente, fazendo você perder sua mão esquerda. O ataque dela faz com que você perca toda sua defesa. O que você decide fazer agora?\n1 - Ficar totalmente paralisado\n2 - Se recompor e atacar a fera\n3 - Sair correndo");
+                if (fera === "1") {
+                  alert("Você percebe que a fera não faz nada com você em seguida, pois ela apenas é capaz de escutar os inimigos.");
+                  let arise = prompt(nomeAventureiro + ", você deseja ajuda?\n1 - Sim, eu necessito\n2 - Não, quem é você");
+                  if (arise === "1") {
+                    alert("Você não deve estar entendendo nada, não é mesmo, meu mestre?");
+                    alert("Mestre! Como assim quem é você?");
+                    let ajuda = prompt("Eu sou a sua habilidade Arise, basicamente sou o sistema desta dungeon, aquele que te guiará e te tornará o ser mais forte desta dungeon. Eu sou capaz de decidir a melhor escolha, alterando o destino da vida. Também posso invocar inimigos que você já derrotou. Você gostaria da minha ajuda para derrotar esta fera?\n1 - Sim, por favor");
+                    if (ajuda === "1") {
+                      alert("Ok, então lhe mostarei o melhor caminho.");
+                      alert("para você ter uma vantagem para de derrotar a fera você devera atacar a audição da fera, fazendo com que ela tornando-se incapaz de perceber a sua presença.")
+                      let dano = newAtk - feraDef;
+                      if (dano < 0) dano = 0;
+                      feraVida -= dano;
+                      alert("Você aproveita e decide atacar a fera com a sua espada, causando " + dano + " de dano. A vida dela agora é " + feraVida + ".");
+                      alert("Status da fera agora:\nVida: " + feraVida + "\nDefesa: " + feraDef + "\nAtaque: " + feraAtk);
+                      newLife -= danoAspão;
+                      alert("Então a fera perde o controle, fazendo com que ela comece a atacar tudo ao seu redor, causando um leve dano em você de " + danoAspão + ". Ela te joga para longe, causando um leve dano. Seus status atuais agora são:\nVida: " + newLife + "\nDefesa: " + newDef + "\nAtaque: " + newAtk);
+                      alert("Então você aproveita que a fera está totalmente incapacitada e você tenta usar a habilidade de reviver os inimigos derrotados.");
+                      let slimeLv20 = prompt("!!Mestre, você realmente deseja usar esta habilidade?\n1 - Sim");
+                      if (slimeLv20 === "1") {
+                        alert("Você trouxe de volta aquele slime que foi derrotado no começo de sua jornada, mas você percebe que ele está totalmente mais forte com um visual totalmente diferente.");
+                        alert("Você reviviu o slime com os seguintes status:\nVida: " + vidaSlime2 + "\nDefesa: " + defSlime2 + "\nAtaque: " + atkSlime2);
+                        alert(" então você manda o slime atacar a fera para ver o que ele pode ser capza de fazer")
+                        alert(" slime avançou na fera mais não causou nenhum dano a ela")
+                        alert("então você pergunta para o sua habilidade Arise quais habilidades ele pode ser capaz de usar \n ele possue uma habilidade chamada gula que é capaz de devorar aqueles que são mais fracos que ele fazendo com os inimigos sejam totalmente devorados")
+                        gula = prompt("você gostaria de usar esta habilidade \n1 - sim ")
+                        if (gula === "1") {
+                          alert("Então você manda o slime atacar a fera fazendo com que ela totalmente devorada pela habilidade gula " + gula - feraVida - feraDef)
+                          alert(" então a fera foi totalmente morta lhe consedendo duas novas habilidades que são (audição severa e uma precisão de ataque)")
+                          alert("seus status atuais são de \nvida - 90 \ndef - 90 \natk - 80")
+                          alert("após você ter derrotado a fera você decide usar a sua habilidade Arise para fazer com que ela torne uma das suas sombras")
+                          again = prompt("erro, não foi capaz de reviver a fera \n1 - tentar denovo")
+                          if(again === "1"){
+                            alert("erro, não foi capaz de reviver a fera ")
+                            alert("parabens, você conseguiu reviver a fera como um dos seus aliados")
+                            alert("após você ter derrotado a fera e ter revivido ela surge uma porta dourada misteriosa então você decide entrar nela")
+                            alert("após você ter entrado na porta dourada você acaba indo parar em uma cidade extremamente futurista onde a maioria dos aventureiros vão após terminar o primeiro andar da dungeon")
+                            alert (" então como você esta extremamente exausto você acaba indo procurar uma das pousadas principais para aventureiros")
+                            alert("meus parabens " + nomeAventureiro + " você conseguiu concluir o primeiro andar da dungeon")
+                            alert("espere a parte dois ser lançada")
+                            
+                          }
+                          game_again = prompt("você deseja jogar novamente \n - sim \n2 -não ")
+                          if(game_again === "1"){
+                            alert("voltando para o começo em ")
+                            alert("1")
+                            alert("2")
+                            alert("3")
+                            portaMisteriosa(); 
+                            return;
+
+                          }else if (game_again === "2"){
+                            alert("muito obrigado por me acompanhar nesta jornada")
+                            alert("fim")
+                          }
+
+                          
+                        }                
+                      }
+                    }               
+                  }
+                } else if (fera === "2") {
+                  alert("A fera percebe que você avança para atacá-la e, como resultado, você é brutalmente morto.");
+                  combateFera(nomeAventureiro);
+                } else if (fera === "3") {
+                  alert("A fera percebe que você está tentando fugir, fazendo com que você seja totalmente mastigado pela fera, resultando em uma morte brutal.");
+                  combateFera(nomeAventureiro);
+                } else {
+                  alert("Escolha inválida. Tente novamente.");
+                }
+              }                       
+            }
+          } else if (escolha == '1' || escolha == '2') {
+            alert("Você não conseguiu lidar com o slime e foi derrotado.");
+          }
+        }
+        none = prompt("Olá jovem aventureiro, qual é o seu nome?");
+        alert(none + " seja bem-vindo ao Crusader");
+        alert("Crusader é uma vasta dungeon onde há uma vasta quantidade de recursos secretos não explorados pela humanidade, dizem que no final desta dungeon existe um tesouro que pode conceder o que você deseja");
+        alert("Após você entrar na Dungeon, você acaba caindo em um buraco e ao se levantar, você se depara com a seguinte escolha: ao seu lado direito você nota uma porta grande com madeira avermelhada e com aspecto de velha, caindo aos pedaços; e do lado esquerdo você nota um corredor longo e escuro, sem conseguir ver o final");
+        let escolha = prompt("Qual vai ser sua decisão:\n1 - Você escolhe seguir à direita (porta misteriosa)\n2 - Você escolhe seguir à esquerda (corredor escuro)");
+        if (escolha == "1") {
+          let item = portaMisteriosa();
+          if (item == 1) {
+            atkJogador += 5;
+            alert("Ao segurar a espada, você sente uma força de vontade percorrendo seu corpo com a sabedoria e destreza do rei antigo");
+          } else if (item == 2) {
+            defJogador += 10;
+            alert("Ao vestir a armadura, você sente um cosmo entrando em seu corpo com as almas do submundo");
+          } else if (item == 3) {
+            vidaJogador += 30;
+            alert("Você consumiu o cogomelo (você é doido comendo coisas achadas assim do nada). Você sente como se tivesse duplicado de tamanho");
+          }
+          alert('Você sente sua força aumentando\n\nAtaque: ' + atkJogador + '\nDefesa: ' + defJogador + '\nVida: ' + vidaJogador);
+          corredorEscuro();
+        } else if (escolha == "2") {
+          while (vidaJogador > 0) {
+            corredorEscuro();
+            if (vidaJogador <= 0) {
+              alert("Você foi derrotado.");
+              break; // Sai do loop se o jogador for derrotado
+            }
+          }
+        }
+      </script>
+    </body>
+
+    </html>
